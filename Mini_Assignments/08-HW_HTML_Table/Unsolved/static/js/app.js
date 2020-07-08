@@ -17,11 +17,24 @@ grades.forEach((studentgrade) => {
   Object.entries(studentgrade).forEach(function([key, value]) {
     console.log(key, value);
 
+    // append one cell for the student and one cell for the grade
+    var cell = row.append("td");
+    cell.text(value);
+    
+  });
 
+});
 
-  // append one cell for the student and one cell for the grade
-  var cell = row.append("td");
-  cell.text(value);
-
+$(function() {
+  $('tr > td:odd').each(function(index) {
+      var scale = [ ['table-danger', 60], ['table-warning', 70]];
+      var score = $(this).text();
+      for (var i = 0; i < scale.length; i++) {
+          if (score <= scale[i][1]) {
+              $(this).addClass(scale[i][0]);
+          }
+      }
   });
 });
+
+
