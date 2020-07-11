@@ -22,18 +22,42 @@ function runEnter() {
   d3.event.preventDefault();
 
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime");
+  var inputDate = d3.select("#datetime");
+  var inputCountry = d3.select("#country");
 
   // Get the value property of the input element
-  var inputValue = inputElement.property("value");
+  var inputValueDate = inputDate.property("value");
+  var inputValueCountry = inputCountry.property("value");
 
-  // Use the form input to filter the data by blood type
-  function selectDate(dt){
-    return dt.datetime == inputValue;
+  
+ // Use the form input to filter the data by date
+ function selectDate(info){
+  return info.datetime == inputValueDate;
   }
-  var sightingDate = tableData.filter(selectDate);
 
+  function selectCountry(info){
+  return info.country == inputValueCountry;
+  }
+
+  //function getValues() {
+    //return [selectDate(), selectCountry()];
+  //}
+
+
+
+  var sightingDate = tableData.filter(selectDate);
+  var sightingCountry=tableData.filter(selectCountry);
+  var multiplefilters = tableData.filter(info => info. );
+  //var multiplefilters=tableData.filter(selectDate && selectCountry);
+
+  console.log("Get values")
   console.log(sightingDate);
+  console.log(sightingCountry);
+  console.log("-----------Get miltifilters----------")
+  console.log(multiplefilters);
+
+  
+
 
   console.log("----------- Hello-----------------")
   // Use D3 to select the table

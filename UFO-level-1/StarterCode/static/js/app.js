@@ -27,7 +27,7 @@ function runEnter() {
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
-  // Use the form input to filter the data by blood type
+  // Use the form input to filter the data by date
   function selectDate(dt){
     return dt.datetime == inputValue;
   }
